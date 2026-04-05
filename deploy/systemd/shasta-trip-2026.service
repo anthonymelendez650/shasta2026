@@ -1,0 +1,15 @@
+[Unit]
+Description=Shasta Trip 2026 web app
+After=network.target
+
+[Service]
+User=anthonym650
+Group=www-data
+WorkingDirectory=/opt/webapps/sites/shasta-trip-2026
+Environment="PATH=/opt/webapps/sites/shasta-trip-2026/.venv/bin"
+ExecStart=/opt/webapps/sites/shasta-trip-2026/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8091 wsgi:app
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

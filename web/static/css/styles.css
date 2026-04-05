@@ -1,0 +1,211 @@
+:root {
+  --bg: #ecfdf5;
+  --panel: rgba(255,255,255,0.58);
+  --panel-border: rgba(110, 231, 183, 0.35);
+  --text: #14532d;
+  --muted: #2f6b4f;
+  --accent: #34d399;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7 52%, #bbf7d0);
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+}
+.tab-selector {
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px;
+  margin-bottom: 28px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+.tab-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font: inherit;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.tab-label-mobile {
+  display: none;
+}
+.tab-button:hover {
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.tab-button.is-active {
+  color: #f0fdf4;
+  background: var(--accent);
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.is-active {
+  display: block;
+}
+.hero {
+  text-align: center;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin: 0 0 12px;
+}
+.subtitle {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+.card {
+  text-align: left;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(20, 83, 45, 0.12);
+}
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.embed-shell {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(20, 83, 45, 0.12);
+}
+.embed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.embed-header h2 {
+  margin: 0 0 6px;
+}
+.embed-header p {
+  margin: 0;
+  color: var(--muted);
+}
+.embed-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #f0fdf4;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.airbnb-widget-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 4px;
+}
+.airbnb-widget-wrap .airbnb-embed-frame {
+  max-width: 100%;
+}
+.boat-rental-frame {
+  width: 100%;
+  min-height: 1200px;
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+}
+.calendar-frame {
+  width: 100%;
+  min-height: 850px;
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+}
+.sheet-frame {
+  width: 100%;
+  min-height: 900px;
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+}
+.embed-fallback {
+  max-width: none;
+  margin: 0;
+}
+.tab-placeholder {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .tab-selector {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .tab-button {
+    flex: 1 1 0;
+    padding: 12px 16px;
+  }
+  .tab-label-desktop {
+    display: none;
+  }
+  .tab-label-mobile {
+    display: inline;
+  }
+  .embed-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .embed-link {
+    width: 100%;
+  }
+  .airbnb-widget-wrap .airbnb-embed-frame {
+    width: 100% !important;
+    max-width: 450px;
+  }
+  .boat-rental-frame {
+    min-height: 1000px;
+  }
+  .calendar-frame {
+    min-height: 700px;
+  }
+  .sheet-frame {
+    min-height: 720px;
+  }
+}

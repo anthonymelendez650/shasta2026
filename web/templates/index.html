@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shasta Trip 2026</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <main class="container">
+    <nav class="tab-selector" aria-label="Page sections">
+      <button class="tab-button is-active" type="button" data-tab-target="home-panel" aria-selected="true">Home</button>
+      <button class="tab-button" type="button" data-tab-target="airbnb-rental-panel" aria-selected="false">
+        <span class="tab-label-desktop">Airbnb Rental</span>
+        <span class="tab-label-mobile">Airbnb</span>
+      </button>
+      <button class="tab-button" type="button" data-tab-target="boat-rental-panel" aria-selected="false">
+        <span class="tab-label-desktop">Boat Rental</span>
+        <span class="tab-label-mobile">Boat</span>
+      </button>
+      <button class="tab-button" type="button" data-tab-target="itinerary-panel" aria-selected="false">
+        <span class="tab-label-desktop">Itinerary</span>
+        <span class="tab-label-mobile">Plans</span>
+      </button>
+      <button class="tab-button" type="button" data-tab-target="sheet-panel" aria-selected="false">
+        <span class="tab-label-desktop">Google Sheet</span>
+        <span class="tab-label-mobile">Sheet</span>
+      </button>
+    </nav>
+
+    <section class="tab-panel is-active hero" id="home-panel">
+      <h1>Shasta Trip 2026</h1>
+      <p class="subtitle">A simple starter site for trip details, cabin info, packing lists, itinerary, and photos.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h2>Trip Details</h2>
+          <p>Add dates, address, check-in instructions, and travel notes here.</p>
+        </div>
+        <div class="card">
+          <h2>Itinerary</h2>
+          <p>Outline daily plans, meals, activities, and meetup times.</p>
+        </div>
+        <div class="card">
+          <h2>Packing List</h2>
+          <p>Track cold weather gear, groceries, games, and essentials.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="airbnb-rental-panel">
+      <div class="embed-shell">
+        <div class="airbnb-widget-wrap">
+          <div class="airbnb-embed-frame" data-id="830596895266174311" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto;">
+            <a href="https://www.airbnb.com/rooms/830596895266174311?check_in=2026-05-29&amp;check_out=2026-05-31&amp;guests=14&amp;adults=14&amp;s=66&amp;source=embed_widget">View On Airbnb</a>
+            <a href="https://www.airbnb.com/rooms/830596895266174311?check_in=2026-05-29&amp;check_out=2026-05-31&amp;guests=14&amp;adults=14&amp;s=66&amp;source=embed_widget" rel="nofollow">Home in Redding · ★4.96 · 6 bedrooms · 7 beds · 3 baths</a>
+            <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="boat-rental-panel">
+      <div class="embed-shell">
+        <iframe
+          class="boat-rental-frame"
+          src="https://lakeshasta.com/product/patio-boat-party-cruiser/"
+          title="Holiday Harbor Patio Boat Party Cruiser"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="itinerary-panel">
+      <div class="embed-shell">
+        <iframe
+          class="calendar-frame"
+          src="https://calendar.google.com/calendar/embed?src=121e661e838ea925bebc3881924e58cc3bec0f77f86e71bece5ca221ebb1a40a%40group.calendar.google.com&amp;ctz=America%2FLos_Angeles&amp;mode=WEEK&amp;dates=20260528%2F20260601"
+          title="Shasta Trip 2026 Itinerary Calendar"
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="sheet-panel">
+      <div class="embed-shell">
+        <iframe
+          class="sheet-frame"
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRSlEfSsjqEpmTXL3OBu7XIv6SVdJ1CRMibIAOL2E9KK8R8TK-aW9CFpD1ULLbtaQ/pubhtml?widget=true&amp;headers=false"
+          title="Google Sheet"
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </main>
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const targetId = button.dataset.tabTarget;
+
+        tabButtons.forEach((tabButton) => {
+          const isActive = tabButton === button;
+          tabButton.classList.toggle('is-active', isActive);
+          tabButton.setAttribute('aria-selected', String(isActive));
+        });
+
+        tabPanels.forEach((panel) => {
+          panel.classList.toggle('is-active', panel.id === targetId);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
